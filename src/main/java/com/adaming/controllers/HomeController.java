@@ -13,7 +13,13 @@ public class HomeController {
 		return "index";
 	}
 	@GetMapping(value="/login")
-	public String login() {
+	public String login(Model model) {
+		model.addAttribute("title", "Please login here");
 		return "login";
+	}
+	@GetMapping(value="/contact")
+	public String contact(Model model) {
+		model.addAttribute("title", "Contact Us");
+		return "contact";
 	}
 }
