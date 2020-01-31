@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 	<head th:replace="common/fragments :: header">
 		<meta charset="ISO-8859-1">
 		<title>Insert title here</title>
@@ -7,7 +7,12 @@
 	<body>
 		<div th:replace="common/fragments :: navbar"></div>
 		<div class="container">
-		
+			<div sec:authorize="hasRole('ROLE_ADMIN')">
+				<h4>Reserve aux Admins uniquement</h4>
+			</div>
+			<div sec:authorize="hasRole('ROLE_USER')">
+				<h4>Reserve aux utilisateurs</h4>
+			</div>
 		</div>
 		
 	</body>
